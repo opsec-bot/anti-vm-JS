@@ -3,5 +3,25 @@
     "axios": "^1.3.4",
     "pkg": "^5.8.0",
     "registry": "^0.3.0"
-  }
+  },
+  "name": "anti-vm-js",
+  "description": "better",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "build": "npx ncc build -o build/lib index.js && pkg --target node18-win-x64 -o ./build/LeakTest.exe ./build/lib/index.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opsec-bot/anti-vm-JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/opsec-bot/anti-vm-JS/issues"
+  },
+  "homepage": "https://github.com/opsec-bot/anti-vm-JS#readme"
 }

